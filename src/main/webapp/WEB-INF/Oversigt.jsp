@@ -1,5 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: alexa
@@ -8,38 +6,106 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <html>
 <head>
-    <title>Oversigt</title>
-
-    <h1>Her en en oversigt over kunderne</h1>
-
-    <br>
-    <br>
-    <br>
-    <br>
-
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            tetxt-align: left;
+            padding: 8px;
+        }
+    </style>
 </head>
 <body>
 
-<c:forEach var="element" items="${requestScope.Oversigt}">
+<table>
+    <thead>
+    <tr>
+        <th>Id.</th>
+        <th>email</th>
+        <th>role</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach var="element" items = "${requestScope.Oversigt}">
+        <tr>
+            <td>${element.id}</td>
+            <td>${element.email}</td>
+            <td>${element.role}</td>
+        </tr>
 
-    ${element.id},
-    ${element.email},
-    ${element.role}
-    <br>
-    <br>
+    </c:forEach>
+    <h2>Antal kunder: ${fn:length(requestScope.Oversigt)}</h2>
+    </tbody>
+</table>
 
-</c:forEach>
+<table>
+        <td>
+            <form name="NewEmployee" action="FrontController" method="POST">
+                <input type="hidden" name="taget" value="NewEmployee">
+                Email:<br>
+                <input type="text" name="email">
+                <br>
+                Password:<br>
+                <input type="text" name="password">
+                <br>
+                Role:<br>
+                <input type="text" name="role">
+                <br>
+                <input type="submit" value="NewEmployee">
+            </form>
+        </td>
+        <td>
+            <form name="DeleteUser" action="FrontController" method="POST">
+                <input type="hidden" name="taget" value="DeleteUser">
+                Email:<br>
+                <input type="text" name="email">
+                <br>
+                <input type="submit" value="DeleteUser">
+            </form>
+        </td>
+        <td>
+            <form name="UpdateUser" action="FrontController" method="POST">
+                <input type="hidden" name="taget" value="UpdateUser">
+                Email:<br>
+                <input type="text" name="email">
+                <br>
+                Password:<br>
+                <input type="text" name="password">
+                <br>
+                <input type="submit" value="UpdateUser">
+            </form>
+        </td>
+        <td>
+            <form name="ResetUser" action="FrontController" method="POST">
+                <input type="hidden" name="taget" value="ResetUser">
+                Email:<br>
+                <input type="text" name="email">
+                <br>
+                <input type="submit" value="ResetUser">
+            </form>
+        </td>
 
-<h2>Kunder: ${fn:length(requestScope.Oversigt)}</h2>
+    </tr>
+</table>
 
+<br>
+<br>
 <br>
 <br>
 
 <form>
+
     <input type="hidden" name="taget" value="employeepage">
     <input type="submit" value="Gå tilbage">
+
 </form>
 
 </body>

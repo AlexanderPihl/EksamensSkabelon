@@ -85,4 +85,49 @@ public class UserMapper {
         return allUsers;
     }
 
+    public static void DeleteUser( User user ) {
+            try {
+            Connection con = Connector.connection();
+            String SQL = "DELETE FROM users WHERE email= ?";
+            PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
+            ps.setString( 1, user.getEmail() );
+            ps.executeUpdate();
+            ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
+            int id = ids.getInt( 1 );
+            user.setId( id );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void UpdateUser(User user) {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE users SET password =? WHERE email=?";
+            PreparedStatement ps = con.prepareStatement( SQL);
+            ps.setString( 1, user.getPassword() );
+            ps.setString( 2, user.getEmail() );
+            ps.executeUpdate();
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void ResetUser(User user) {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE users SET password ='1234' WHERE email=?";
+            PreparedStatement ps = con.prepareStatement( SQL);
+            ps.setString( 1, user.getEmail() );
+            ps.executeUpdate();
+            System.out.println(user.getEmail());
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

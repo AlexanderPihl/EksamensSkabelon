@@ -19,6 +19,10 @@ public class User {
         this.role = role;
     }
 
+    public User(String email){
+        this.email = email;
+    }
+
     private int id; // just used to demo retrieval of autogen keys in UserMapper
     private String email;
     private String password; // Should be hashed and secured

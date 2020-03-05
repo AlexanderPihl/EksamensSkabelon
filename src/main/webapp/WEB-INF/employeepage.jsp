@@ -12,10 +12,8 @@
         <title>Employee home page</title>
     </head>
     <body>
-        
 
         <h1>Hello ${sessionScope.email} </h1>
-
 
         You are now logged in as a EMPLOYEE of our wonderful site.
         <br>
@@ -23,12 +21,9 @@
 
         <form>
 
-            <h1>Tryk her for en oversigt over kunder</h1>
-
             <input type="hidden" name="taget" value="Oversigt">
             <input type="submit" value="Vis oversigt over kunder">
 
         </form>
-
     </body>
 </html>
