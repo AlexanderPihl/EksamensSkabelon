@@ -23,6 +23,11 @@ public class User {
         this.email = email;
     }
 
+    public User( String password, String email) {
+        this.password = password;
+        this.email = email;
+    }
+
     private int id; // just used to demo retrieval of autogen keys in UserMapper
     private String email;
     private String password; // Should be hashed and secured

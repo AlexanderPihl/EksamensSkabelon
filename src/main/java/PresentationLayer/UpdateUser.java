@@ -13,7 +13,7 @@ public class UpdateUser extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response){
         String email = request.getParameter( "email" );
         String password = request.getParameter( "password" );
-        User user = LogicFacade.UpdateUser(email);
+        User user = LogicFacade.UpdateUser( password, email);
         HttpSession session = request.getSession();
         return "employeepage";
     }

@@ -25,6 +25,11 @@
 </head>
 <body>
 
+<form action="FrontController" method="post">
+    <input type="hidden" name="taget" value="logout">
+    <input type="submit" value="Logout">
+</form>
+
 <table>
     <thead>
     <tr>

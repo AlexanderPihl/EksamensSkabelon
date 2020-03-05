@@ -30,8 +30,8 @@ public class LogicFacade {
         return user;
     }
 
-    public static User UpdateUser(String email) {
-        User user = new User(email);
+    public static User UpdateUser(String password, String email) {
+        User user = new User(password, email);
         UserMapper.UpdateUser( user );
         return user;
     }

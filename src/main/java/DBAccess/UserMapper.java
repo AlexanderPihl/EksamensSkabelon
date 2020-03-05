@@ -106,7 +106,7 @@ public class UserMapper {
     public static void UpdateUser(User user) {
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE users SET password =? WHERE email=?";
+            String SQL = "UPDATE Users SET password =? WHERE email=?";
             PreparedStatement ps = con.prepareStatement( SQL);
             ps.setString( 1, user.getPassword() );
             ps.setString( 2, user.getEmail() );
@@ -120,7 +120,7 @@ public class UserMapper {
     public static void ResetUser(User user) {
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE users SET password ='1234' WHERE email=?";
+            String SQL = "UPDATE Users SET password ='1234' WHERE email=?";
             PreparedStatement ps = con.prepareStatement( SQL);
             ps.setString( 1, user.getEmail() );
             ps.executeUpdate();
