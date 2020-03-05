@@ -22,10 +22,10 @@
                     <form name="login" action="FrontController" method="POST">
                         <input type="hidden" name="taget" value="login">
                         Email:<br>
-                        <input type="text" name="email" value="someone@nowhere.com">
+                        <input type="text" name="email" value="robin@somewhere.com">
                         <br>
                         Password:<br>
-                        <input type="password" name="password" value="sesam">
+                        <input type="password" name="password" value="batman">
                         <br>
                         <input type="submit" value="Submit">
                     </form>
@@ -50,7 +50,7 @@
         </table>
 
 
-<%--        Bare lige se I har en ide om hvad vi forslå I ikke gør ! det hedder scpript lets --%>
+        <%--        Bare lige se I har en ide om hvad vi forslå I ikke gør ! det hedder scpript lets --%>
 <%--        <% String error = (String) request.getAttribute( "error");--%>
 <%--           if ( error != null) { --%>
 <%--               out.println("<H2>Error!!</h2>");--%>
